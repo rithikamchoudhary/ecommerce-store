@@ -6,9 +6,13 @@ import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
 import RegisterPage from './Pages/RegisterPage';
 import ProductPage from './Pages/ProductPage';
+import { CartProvider } from './CartContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App(){
   return(
+    <CartProvider>
     <Router>  
       <Navbar />
       <Routes>
@@ -19,7 +23,15 @@ function App(){
         <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
     </Router>
-    // <h1>Welcome to the E-commerce App</h1>
+    <ToastContainer
+      position="top-center"
+      autoClose={2000}
+      hideProgressBar={false}
+      newestOnTop
+      closeOnClick
+      pauseOnHover
+    />
+    </CartProvider>
   );
 };
 
