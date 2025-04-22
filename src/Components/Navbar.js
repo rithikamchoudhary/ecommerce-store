@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../CartContext";
 
+const currentUser = {
+  username: "admin",
+  role: "ADMIN",
+};
+
 const Navbar = () => {
   const { cartItems } = useContext(CartContext);
   return (
@@ -19,6 +24,11 @@ const Navbar = () => {
       <Link to="/register" style={{ margin: "0 10px", color: "#fff" }}>
         Register
       </Link>
+      {currentUser.role === "ADMIN" && (
+        <Link to="/add-product" style={{ margin: "0 10px", color: "#fff" }}>
+          Add Product
+        </Link>
+      )}
     </nav>
   );
 };
